@@ -1,0 +1,77 @@
+<div class="card w-3/5 rounded shadow-sm shadow-black m-4 mx-auto">
+    <div class="card-body">
+        <div class="card-title font-bold uppercase justify-center">Intensiones</div>
+
+        <div class="grid grid-cols-1">
+            <label class="label" for="">Tag:</label>
+            <input class="input input-primary" type="text" placeholder="Ejm: saludo" [(ngModel)]="currentEntity.tag">
+            <div class="divider"> </div>
+            <table class="table table-compact">
+                <thead>
+                    <tr>
+                        <th>Patrones</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pattern of currentEntity.patterns">
+                        <td>{{pattern}}</td>
+                        <td><a (click)="removePattern(pattern)">Elimnar</a></td> 
+                    </tr>
+                    <tr>
+                        <input #inputPattern class="input input-primary input-xs" type="text" placeholder="Agregar" (keyup.enter)="currentEntity.patterns.push(inputPattern.value)">
+                    </tr>
+                </tbody>
+            </table>
+            <div class="divider"> </div>
+            <table class="table table-compact">
+                <thead>
+                    <tr>
+                        <th>Respuestas</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let response of currentEntity.responses">
+                        <td>{{response}}</td>
+                        <td><a (click)="removeReponse(response)">Elimnar</a></td> 
+                    </tr>
+                    <tr>
+                        <input #inputResponse class="input input-primary input-xs" type="text" placeholder="Agregar" (keyup.enter)="currentEntity.responses.push(inputResponse.value)">
+                    </tr>
+                </tbody>
+            </table>
+            <div class="divider"> </div>
+            <table class="table table-compact">
+                <thead>
+                    <tr>
+                        <th>Contextos</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cont of currentEntity.context">
+                        <td>{{cont}}</td>
+                        <td><a (click)="removeContext(cont)">Elimnar</a></td> 
+                    </tr>
+                    <tr>
+                        <input #inputContext class="input input-primary input-xs" type="text" placeholder="Agregar" (keyup.enter)="currentEntity.context.push(inputContext.value)">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-actions">
+            <button class="btn btn-primary" (click)="save()">Guardar</button>
+        </div>
+    </div>
+</div>
+
+<div class="card card-compact w-3/5 rounded shadow-sm shadow-black m-4 mx-auto">
+    <div class="card-body">
+        <div class="card-title">Entrenamiento</div>
+        <div class="card-actions">
+            <button class="btn btn-secondary" (click)="train()">Entrenar</button>
+        </div>
+    </div>
+</div>
