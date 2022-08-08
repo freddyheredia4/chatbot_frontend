@@ -18,7 +18,7 @@ export class IntentService {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
 
-  private url = 'http://localhost:8000/api/bot/intent'
+  private url = 'http://192.168.1.21:8000/api/bot/intent'
 
   public save(intent: Intent): Observable<Intent>{
     return this.http.post<Intent>(this.url+"/", intent, this.httpOptions)
